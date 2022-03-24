@@ -10,7 +10,7 @@ function App() {
   };
 
   const handleDownload = () => {
-    console.log(document.querySelector(".QR-CODE"));
+    
   };
 
   return (
