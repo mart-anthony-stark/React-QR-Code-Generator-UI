@@ -10,7 +10,6 @@ function App() {
   };
 
   const handleDownload = () => {
-    
   };
 
   return (
