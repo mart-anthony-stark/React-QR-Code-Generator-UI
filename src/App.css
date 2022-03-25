@@ -1,6 +1,18 @@
 .App {
-  background: var(--c-pri);
+  background: aliceblue;
   padding: 0 30px;
+}
+.header {
+  background: var(--c-pri);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  color: #fff;
+  padding: 0 30px;
+  height: 70px;
+  display: flex;
+  align-items: center;
 }
 .container {
   min-height: 100vh;
