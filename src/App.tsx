@@ -17,7 +17,7 @@ function App() {
         <QRCode value={code} className="QR-CODE" />
         <input
           type="text"
-          placeholder="Enter your qrcode value"
+          placeholder="Enter your QR code value"
           onChange={handleChange}
         />
         <button onClick={handleDownload}>Save QR Code</button>
