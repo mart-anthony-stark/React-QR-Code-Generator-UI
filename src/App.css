@@ -1,5 +1,6 @@
 .App {
   background: var(--c-pri);
+  padding: 0 30px;
 }
 .container {
   min-height: 100vh;
