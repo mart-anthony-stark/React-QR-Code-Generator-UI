@@ -13,6 +13,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="header">
+        <h1>QR Code Generator</h1>
+      </div>
       <div className="container center col">
         <QRCode value={code} className="QR-CODE" />
         <input
