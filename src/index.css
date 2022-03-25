@@ -11,3 +11,6 @@
 .col {
   flex-direction: column;
 }
+:root{
+  --c-pri:#74BDCB;
+}
