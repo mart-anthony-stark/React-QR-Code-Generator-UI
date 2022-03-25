@@ -2,3 +2,8 @@
   min-height: 100vh;
   gap: 20px;
 }
+.container input {
+  padding: 10px 20px;
+  max-width: 400px;
+  width: 100%;
+}
