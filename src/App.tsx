@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container center">
+      <div className="container center col">
         <QRCode value={code} className="QR-CODE" />
         <input
           type="text"
