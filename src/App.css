@@ -12,8 +12,13 @@
   width: 100%;
   border: none;
   background: var(--c-sec);
+  border-radius: 5px;
 }
 .container button {
   cursor: pointer;
   padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background: var(--c-acc);
+  color: #ffff;
 }
