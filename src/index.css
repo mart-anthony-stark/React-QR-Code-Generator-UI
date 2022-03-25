@@ -11,7 +11,7 @@
 .col {
   flex-direction: column;
 }
-:root{
-  --c-pri:#74BDCB;
-  --c-sec: #FFA384;
+:root {
+  --c-pri: #74bdcb;
+  --c-sec: #efe7bc;
 }
