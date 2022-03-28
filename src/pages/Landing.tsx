@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
+import "../styles/landing.css";
 
 export default () => {
   const [code, setCode] = useState("");
