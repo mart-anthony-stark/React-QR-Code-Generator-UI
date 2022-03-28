@@ -8,7 +8,10 @@ export default () => {
         We rely on cookies to remember your preferences and to analyze our
         website traffic. By clicking, you agree to our Privacy Policy
       </p>
-      <button className="cta">Allow Cookies</button>
+      <div className="flex">
+        <button className="cta">Allow Cookies</button>
+        <button>Cancel</button>
+      </div>
     </div>
   );
 };
