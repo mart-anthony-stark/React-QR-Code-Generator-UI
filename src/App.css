@@ -13,6 +13,11 @@
   height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.header .links {
+  display: flex;
+  gap: 20px;
 }
 .container {
   min-height: 100vh;
