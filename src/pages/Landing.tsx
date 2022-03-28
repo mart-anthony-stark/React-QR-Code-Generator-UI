@@ -45,7 +45,7 @@ export default () => {
           placeholder="Enter your QR code value"
           onChange={handleChange}
         />
-        <button onClick={handleDownload}>Save QR Code</button>
+        <button onClick={handleDownload}>Download QR Code</button>
       </div>
     </div>
   );
