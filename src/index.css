@@ -14,5 +14,19 @@
 :root {
   --c-pri: #2c52bb;
   --c-sec: #efe7bc;
-  --c-acc: #7700ff;
+  --c-acc: #ac64ff;
+}
+button {
+  padding: 8px 20px;
+  cursor: pointer;
+  background: var(--c-sec);
+  border: none;
+  color: #000;
+}
+.rounded {
+  border-radius: 25px;
+}
+.cta {
+  background: var(--c-acc);
+  /* color: #fff; */
 }
