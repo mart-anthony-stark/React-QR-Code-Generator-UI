@@ -10,7 +10,10 @@ export default () => {
     setCode(e.target.value);
   };
 
-  const handleDownload = () => {};
+  const handleDownload = () => {
+    const svg = document.querySelector(".QR-CODE");
+    console.log(svg);
+  };
 
   return (
     <div className="landing-page">
