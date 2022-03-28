@@ -21,7 +21,7 @@ export default () => {
     setImageToSVG();
   }, []);
   return (
-    <div className="App">
+    <div className="landing-page">
       <div className="header">
         <h1>QR Code Generator</h1>
       </div>
