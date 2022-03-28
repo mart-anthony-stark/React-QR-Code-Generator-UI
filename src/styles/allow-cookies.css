@@ -6,6 +6,7 @@
   width: 100%;
   background: var(--c-pri);
   color: #fff;
+  z-index: 9;
 }
 .accept-cookies button {
   margin-top: 20px;
