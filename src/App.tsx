@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import QRCode from "react-qr-code";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
 
 function App() {
-  
   return (
     <div className="App">
-      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
