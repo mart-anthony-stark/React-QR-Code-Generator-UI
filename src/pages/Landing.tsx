@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QRCode from "react-qr-code";
 import "../styles/landing.css";
 
@@ -12,15 +12,6 @@ export default () => {
 
   const handleDownload = () => {};
 
-  const setImageToSVG = () => {
-    const svg = document.querySelector(".QR-CODE");
-
-    var xml = new XMLSerializer().serializeToString(svg as Node);
-    setSrc("data:image/svg+xml;charset=utf-8," + xml);
-  };
-  useEffect(() => {
-    setImageToSVG();
-  }, []);
   return (
     <div className="landing-page">
       <div className="header">
@@ -28,7 +19,6 @@ export default () => {
       </div>
       <div className="container center col">
         <QRCode value={code} className="QR-CODE" />
-        <img src={imgSrc} alt="" />
         <input
           type="text"
           placeholder="Enter your QR code value"
