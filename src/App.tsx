@@ -5,16 +5,18 @@ import Navbar from "./components/Navbar";
 import AcceptCookies from "./components/AcceptCookies";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Login from "./pages/Login";
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
 
   return (
     <div className="App">
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
       <AnimatePresence>
