@@ -22,9 +22,10 @@ function App() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
             exit={{ opacity: 0 }}
           >
-            <AcceptCookies setVisible={setCookieVisible}/>
+            <AcceptCookies setVisible={setCookieVisible} />
           </motion.div>
         )}
       </AnimatePresence>
