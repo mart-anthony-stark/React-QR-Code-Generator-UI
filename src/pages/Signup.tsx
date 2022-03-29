@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
@@ -13,14 +15,14 @@ const Signup = () => {
     e.preventDefault();
 
     console.log({ username, email, password });
-    if(username !== '' && email !== '' &&password !== '' ){
-
-    }else{
-      
+    if (username !== "" && email !== "" && password !== "") {
+    } else {
+      toast.error("All fields are required!");
     }
   };
   return (
     <div className="auth">
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <h1>Create An Account!</h1>
 
