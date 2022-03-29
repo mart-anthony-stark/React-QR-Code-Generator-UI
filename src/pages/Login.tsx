@@ -10,11 +10,15 @@ const Login = () => {
   return (
     <div className="login">
       <form onSubmit={handleSubmit}>
+        <h1>Welcome Back!</h1>
+
         <div className="field">
-          <input type="text" placeholder="johndoe@gmail.com" />
+          <label htmlFor="email">Email</label>
+          <input name="email" type="text" placeholder="johndoe@gmail.com" />
         </div>
         <div className="field">
-          <input type="text" placeholder="your password" />
+          <label htmlFor="password">Password</label>
+          <input name="password" type="password" placeholder="your password" />
         </div>
         <button disabled={btnDisabled} className="cta">
           LOGIN
