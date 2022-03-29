@@ -19,6 +19,8 @@
 }
 :root {
   --c-pri: #2c52bb;
+  --c-pri-light: #376af7;
+  --c-pri-dark: #1f3675;
   --c-sec: #efe7bc;
   --c-acc: #bb2c62;
 }
