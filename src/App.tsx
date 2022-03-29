@@ -6,6 +6,7 @@ import AcceptCookies from "./components/AcceptCookies";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
         </Routes>
       </Router>
       <AnimatePresence>
