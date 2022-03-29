@@ -17,7 +17,9 @@ const AcceptCookies: FC<Props> = ({ setVisible }) => {
         website traffic. By clicking, you agree to our Privacy Policy
       </p>
       <div className="flex">
-        <button className="cta">Allow Cookies</button>
+        <button onClick={cancelCookie} className="cta">
+          Allow Cookies
+        </button>
         <button onClick={cancelCookie}>Cancel</button>
       </div>
     </div>
