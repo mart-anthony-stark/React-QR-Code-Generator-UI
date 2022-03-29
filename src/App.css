@@ -1,6 +1,7 @@
 .App {
   background: aliceblue;
   padding: 0 30px;
+  padding-top: 70px;
 }
 .header {
   background: var(--c-pri);
