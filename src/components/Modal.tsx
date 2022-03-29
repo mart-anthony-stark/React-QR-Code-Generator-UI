@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import '../styles/modal.css'
 
 type Props = {
   children: React.ReactNode;
