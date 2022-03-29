@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 const Login = () => {
@@ -8,7 +9,7 @@ const Login = () => {
     e.preventDefault();
   };
   return (
-    <div className="login">
+    <div className="auth">
       <form onSubmit={handleSubmit}>
         <h1>Welcome Back!</h1>
 
@@ -23,6 +24,13 @@ const Login = () => {
         <button disabled={btnDisabled} className="cta">
           LOGIN
         </button>
+
+        <p>
+          Doesn't have an account?{" "}
+          <Link to="/register">
+            <span>Register</span>
+          </Link>
+        </p>
       </form>
     </div>
   );
