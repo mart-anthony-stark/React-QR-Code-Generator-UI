@@ -6,12 +6,12 @@ export default () => {
       <h1>QR Code Generator</h1>
 
       <div className="links">
-        <button className="rounded">
-          <Link to="/login">Login</Link>
-        </button>
-        <button className="rounded cta">
-          <Link to="/register">Signup</Link>
-        </button>
+        <Link to="/login">
+          <button className="rounded">Login</button>
+        </Link>
+        <Link to="/register">
+          <button className="rounded cta">Signup</button>
+        </Link>
       </div>
     </div>
   );
