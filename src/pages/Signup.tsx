@@ -27,7 +27,8 @@ const Signup = () => {
       console.log(data);
       if (data.success) {
         localStorage.setItem("token", data.token);
-        
+      } else {
+        toast.error(data.msg);
       }
     } else {
       toast.error("All fields are required!");
