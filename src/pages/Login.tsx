@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Login = () => {
+  const [btnDisabled, setbtnDisabled] = useState(false);
+
   return (
     <div className="login">
       <form>
@@ -9,6 +13,7 @@ const Login = () => {
           <input type="text" placeholder="your password" />
         </div>
       </form>
+      <button disabled={btnDisabled}></button>
     </div>
   );
 };
