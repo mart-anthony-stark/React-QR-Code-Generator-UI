@@ -40,3 +40,6 @@
   background: var(--c-acc);
   color: #ffff;
 }
+a {
+  all: unset;
+}
