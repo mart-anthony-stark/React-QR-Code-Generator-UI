@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Navbar from "./components/Navbar";
 import AcceptCookies from "./components/AcceptCookies";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
@@ -16,7 +17,17 @@ function App() {
           <Route path="/" element={<Landing />} />
         </Routes>
       </Router>
-      {cookieVisible && <AcceptCookies />}
+      <AnimatePresence>
+        {cookieVisible && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <AcceptCookies setVisible={setCookieVisible}/>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
