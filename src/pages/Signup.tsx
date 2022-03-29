@@ -14,7 +14,11 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username !== "" && email !== "" && password !== "") {
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters");
+    }
+
+    if (username !== "" && email !== "" && password.length >= 8) {
       const base = import.meta.env.VITE_API_BASE_URL;
       const res = await fetch(`${base}/auth/register`, {
         method: "POST",
