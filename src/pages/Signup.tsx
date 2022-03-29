@@ -29,7 +29,7 @@ const Signup = () => {
         localStorage.setItem("token", data.token);
         toast.success("Account createed successfully");
       } else {
-        toast.error(data.msg);
+        toast.error(data.msg || "Something went wrong");
       }
     } else {
       toast.error("All fields are required!");
