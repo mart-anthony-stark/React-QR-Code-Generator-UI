@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 
 const Signup = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
 
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(e);
+
+    console.log({ username, email, password });
+    if(username !== '' && email !== '' &&password !== '' ){
+
+    }else{
+      
+    }
   };
   return (
     <div className="auth">
@@ -16,17 +26,32 @@ const Signup = () => {
 
         <div className="field">
           <label htmlFor="email">Name</label>
-          <input name="email" type="text" placeholder="John Doe" />
+          <input
+            name="username"
+            type="text"
+            placeholder="John Doe"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
 
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input name="email" type="text" placeholder="johndoe@gmail.com" />
+          <input
+            name="email"
+            type="text"
+            placeholder="johndoe@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
 
         <div className="field">
           <label htmlFor="password">Password</label>
-          <input name="password" type="password" placeholder="your password" />
+          <input
+            name="password"
+            type="password"
+            placeholder="your password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <button disabled={btnDisabled} className="cta">
           SIGNUP
