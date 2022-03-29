@@ -11,11 +11,24 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log({ username, email, password });
     if (username !== "" && email !== "" && password !== "") {
+      const base = import.meta.env.VITE_API_BASE_URL;
+      const res = await fetch(`${base}/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await res.json();
+
+      console.log(data);
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        
+      }
     } else {
       toast.error("All fields are required!");
     }
