@@ -1,6 +1,14 @@
 import "../styles/allow-cookies.css";
+import { FC } from "react";
 
-export default () => {
+type Props = {
+  setVisible: (isVisible: boolean) => void;
+};
+const AcceptCookies: FC<Props> = ({ setVisible }) => {
+  const cancelCookie = () => {
+    setVisible(false);
+  };
+
   return (
     <div className="accept-cookies">
       <h2>This website uses cookies</h2>
@@ -10,8 +18,10 @@ export default () => {
       </p>
       <div className="flex">
         <button className="cta">Allow Cookies</button>
-        <button>Cancel</button>
+        <button onClick={cancelCookie}>Cancel</button>
       </div>
     </div>
   );
 };
+
+export default AcceptCookies;
