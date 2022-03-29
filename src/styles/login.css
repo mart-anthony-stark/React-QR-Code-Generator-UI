@@ -1,10 +1,10 @@
-.login {
+.auth {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-.login form {
+.auth form {
   padding: 50px 20px;
   max-width: 350px;
   width: 100%;
@@ -15,10 +15,27 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
 }
-.login form button,
-.login form input {
+.auth form h1 {
+  margin-bottom: 20px;
+  color: var(--c-pri);
+}
+.auth form button,
+.auth form input {
   width: 100%;
 }
-.login form input {
-  padding: 5px;
+.auth form button {
+  padding: 15px;
+}
+.auth form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth form input {
+  padding: 10px;
+  border: 1px solid var(--c-pri-light);
+  border-radius: 5px;
+}
+.auth form label {
+  color: var(--c-pri-light);
 }
