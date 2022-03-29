@@ -27,6 +27,7 @@ const Signup = () => {
       console.log(data);
       if (data.success) {
         localStorage.setItem("token", data.token);
+        toast.success("Account createed successfully");
       } else {
         toast.error(data.msg);
       }
