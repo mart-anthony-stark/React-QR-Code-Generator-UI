@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/auth.css";
 
 const Login = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(e);
   };
   return (
     <div className="auth">
