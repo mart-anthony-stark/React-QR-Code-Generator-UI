@@ -1,16 +1,36 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Landing from "./pages/Landing";
 import Navbar from "./components/Navbar";
 import AcceptCookies from "./components/AcceptCookies";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "./actions";
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const user = useSelector((state: any) => state.user);
+
+  useEffect(() => {
+    const checkLogged = async () => {
+      const res = "";
+      const data = { logged: false, user: null };
+
+      if (data.user) dispatch(setUser(data.user));
+    };
+    checkLogged();
+  }, []);
 
   return (
     <div className="App">
@@ -20,7 +40,10 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard /> : <Navigate to="/login" />}
+          />
         </Routes>
       </Router>
       <AnimatePresence>
