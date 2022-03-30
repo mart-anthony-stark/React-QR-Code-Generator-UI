@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import { setUser } from "./actions";
 
 function App() {
@@ -35,11 +36,13 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ToastContainer />
+
         <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
+          <Route path="/register" element={<Signup toast={toast} />} />
           <Route
             path="/dashboard"
             element={user ? <Dashboard /> : <Navigate to="/login" />}
