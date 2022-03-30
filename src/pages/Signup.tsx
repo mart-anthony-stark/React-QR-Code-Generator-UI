@@ -2,12 +2,9 @@ import React, { FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
-type Props = {
-  toast: any;
-};
-
-const Signup: FC<Props> = ({ toast }) => {
+const Signup: FC = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
 
   const [username, setUsername] = useState("");
@@ -23,20 +20,24 @@ const Signup: FC<Props> = ({ toast }) => {
 
     if (username !== "" && email !== "" && password.length >= 8) {
       const base = import.meta.env.VITE_API_BASE_URL;
-      const res = await fetch(`${base}/auth/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
-      });
+      try {
+        const res = await fetch(`${base}/auth/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      console.log(data);
-      if (data.success) {
-        localStorage.setItem("token", data.token);
-        toast.success("Account createed successfully");
-      } else {
-        toast.error(data.msg || "Something went wrong");
+        console.log(data);
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          toast.success("Account createed successfully");
+        } else {
+          toast.error(data.msg || "Something went wrong");
+        }
+      } catch (error) {
+        toast.error("Something went wrong!");
       }
     } else {
       toast.error("All fields are required!");
