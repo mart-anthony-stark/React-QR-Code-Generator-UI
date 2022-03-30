@@ -1,10 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Signup = () => {
+type Props = {
+  toast: any;
+};
+
+const Signup: FC<Props> = ({ toast }) => {
   const [btnDisabled, setbtnDisabled] = useState(false);
 
   const [username, setUsername] = useState("");
@@ -41,7 +44,6 @@ const Signup = () => {
   };
   return (
     <div className="auth">
-      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <h1>Create An Account!</h1>
 
