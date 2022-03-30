@@ -4,10 +4,13 @@ import "../styles/auth.css";
 
 const Login = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(e);
+    
+    
   };
   return (
     <div className="auth">
@@ -16,11 +19,21 @@ const Login = () => {
 
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input name="email" type="text" placeholder="johndoe@gmail.com" />
+          <input
+            name="email"
+            type="text"
+            placeholder="johndoe@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="field">
           <label htmlFor="password">Password</label>
-          <input name="password" type="password" placeholder="your password" />
+          <input
+            name="password"
+            type="password"
+            placeholder="your password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <button disabled={btnDisabled} className="cta">
           LOGIN
