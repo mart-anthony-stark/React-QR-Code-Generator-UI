@@ -1,11 +1,12 @@
 import React, { FC, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const Signup: FC = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -33,6 +34,7 @@ const Signup: FC = () => {
         if (data.success) {
           localStorage.setItem("token", data.token);
           toast.success("Account createed successfully");
+          navigate("/dashboard");
         } else {
           toast.error(data.msg || "Something went wrong");
         }
