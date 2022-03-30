@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../styles/auth.css";
 
 const Login = () => {
@@ -9,8 +10,11 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    
+    if (email !== "" && password !== "") {
+      // DB WORK
+    } else {
+      toast.error("All fields must be filled!");
+    }
   };
   return (
     <div className="auth">
