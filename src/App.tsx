@@ -6,9 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import Landing from "./pages/Landing";
-import Navbar from "./components/Navbar";
 import AcceptCookies from "./components/AcceptCookies";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -16,6 +15,8 @@ import Dashboard from "./pages/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { setUser } from "./actions";
+
+const Navbar = lazy(() => import("./components/Navbar"));
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
@@ -48,26 +49,28 @@ function App() {
     <div className="App">
       {!loading && (
         <div>
-          <Router>
-            <ToastContainer />
+          <Suspense fallback={<div></div>}>
+            <Router>
+              <ToastContainer />
 
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route
-                path="/login"
-                element={user ? <Navigate to="/dashboard" /> : <Login />}
-              />
-              <Route
-                path="/register"
-                element={user ? <Navigate to="/dashboard" /> : <Signup />}
-              />
-              <Route
-                path="/dashboard"
-                element={user ? <Dashboard /> : <Navigate to="/login" />}
-              />
-            </Routes>
-          </Router>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route
+                  path="/login"
+                  element={user ? <Navigate to="/dashboard" /> : <Login />}
+                />
+                <Route
+                  path="/register"
+                  element={user ? <Navigate to="/dashboard" /> : <Signup />}
+                />
+                <Route
+                  path="/dashboard"
+                  element={user ? <Dashboard /> : <Navigate to="/login" />}
+                />
+              </Routes>
+            </Router>
+          </Suspense>
           <AnimatePresence>
             {cookieVisible && (
               <motion.div
