@@ -5,7 +5,7 @@ import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 
 const Dashboard = () => {
-  const [qrCodes, setQrCodes] = useState();
+  const [qrCodes, setQrCodes] = useState([]);
   const user = useSelector((state: any) => state.user);
 
   const getItems = async () => {
@@ -34,7 +34,13 @@ const Dashboard = () => {
       <div className="recent">
         <h2>Recent QR Codes</h2>
         <div className="items">
-          <QRItem title="Mart" value="asldh" />
+          {qrCodes.length == 0 ? (
+            <h2>No items</h2>
+          ) : (
+            qrCodes.map((code: any) => (
+              <QRItem title={code.title} value={code.value} />
+            ))
+          )}
         </div>
       </div>
     </div>
