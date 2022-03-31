@@ -2,7 +2,7 @@ import { FC } from "react";
 import "../styles/add-icon.css";
 
 type Props = {
-  onClick?: () => void;
+  onClick?: (e: any) => void;
 };
 
 const AddIcon: FC<Props> = ({ onClick }) => {
