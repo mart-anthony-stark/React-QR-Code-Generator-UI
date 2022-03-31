@@ -1,12 +1,17 @@
-import '../styles/add-icon.css'
+import { FC } from "react";
+import "../styles/add-icon.css";
 
-const AddIcon = () => {
+type Props = {
+  onClick?: () => void;
+};
+
+const AddIcon: FC<Props> = ({ onClick }) => {
   return (
-    <div className="add-icon">
+    <button className="add-icon" onClick={onClick}>
       <div className="plus">+</div>
       <h4>Add New QR Code</h4>
-    </div>
+    </button>
   );
 };
 
-export default AddIcon
+export default AddIcon;
