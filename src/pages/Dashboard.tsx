@@ -13,7 +13,7 @@ const Dashboard = () => {
         <h2>Recent QR Codes</h2>
         <div className="items">
           <div className="item">
-            <QRCode className="" value="Mart" />
+            <QRCode className="qr" value="Mart" />
           </div>
         </div>
       </div>
