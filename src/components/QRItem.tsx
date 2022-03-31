@@ -1,12 +1,12 @@
 import { FC } from "react";
 import QRCode from "react-qr-code";
 
+import "../styles/qr-item.css";
+
 type Props = {
   title: string;
   value: string;
 };
-
-import "../styles/qr-item.css";
 
 const QRItem: FC<Props> = ({ title, value }) => {
   return (
