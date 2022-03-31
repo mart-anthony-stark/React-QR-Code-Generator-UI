@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setUser } from "../actions";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../styles/auth.css";
@@ -7,7 +9,8 @@ const Login = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +28,7 @@ const Login = () => {
 
         const data = await res.json();
         if (data.user) {
+          dispatch(setUser(data.user));
           localStorage.setItem("token", data.token);
           toast.success("Logged in successfully");
           navigate("/dashboard");
