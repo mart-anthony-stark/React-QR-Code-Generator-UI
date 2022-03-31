@@ -25,46 +25,63 @@ function App() {
 
   useEffect(() => {
     const checkLogged = async () => {
+      const jwt = localStorage.getItem("token");
+      const token = `bearer ${jwt}`;
       const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/islogged`
+        `${import.meta.env.VITE_API_BASE_URL}/auth/islogged`,
+        {
+          headers: { token },
+        }
       );
       const data = await res.json();
       console.log(data);
 
       if (data.user) dispatch(setUser(data.user));
       else dispatch(setUser(null));
+
+      setLoading(false);
     };
     checkLogged();
   }, []);
 
   return (
     <div className="App">
-      <Router>
-        <ToastContainer />
+      {!loading && (
+        <div>
+          <Router>
+            <ToastContainer />
 
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
-          <Route
-            path="/dashboard"
-            element={user ? <Dashboard /> : <Navigate to="/login" />}
-          />
-        </Routes>
-      </Router>
-      <AnimatePresence>
-        {cookieVisible && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            exit={{ opacity: 0 }}
-          >
-            <AcceptCookies setVisible={setCookieVisible} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route
+                path="/login"
+                element={user ? <Navigate to="/dashboard" /> : <Login />}
+              />
+              <Route
+                path="/register"
+                element={user ? <Navigate to="/dashboard" /> : <Signup />}
+              />
+              <Route
+                path="/dashboard"
+                element={user ? <Dashboard /> : <Navigate to="/login" />}
+              />
+            </Routes>
+          </Router>
+          <AnimatePresence>
+            {cookieVisible && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                exit={{ opacity: 0 }}
+              >
+                <AcceptCookies setVisible={setCookieVisible} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
     </div>
   );
 }
