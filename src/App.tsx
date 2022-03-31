@@ -27,7 +27,6 @@ function App() {
     const checkLogged = async () => {
       const res = "";
       const data = { logged: false, user: null };
-
       if (data.user) dispatch(setUser(data.user));
     };
     checkLogged();
