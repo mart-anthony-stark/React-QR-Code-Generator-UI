@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { setUser } from "../actions";
+import { useDispatch } from "react-redux";
 
 const Signup: FC = () => {
   const [btnDisabled, setbtnDisabled] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +35,7 @@ const Signup: FC = () => {
 
         console.log(data);
         if (data.success) {
+          dispatch(setUser(data.user));
           localStorage.setItem("token", data.token);
           toast.success("Account createed successfully");
           navigate("/dashboard");
