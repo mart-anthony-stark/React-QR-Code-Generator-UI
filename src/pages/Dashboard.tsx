@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useSelector } from "react-redux";
 import AddIcon from "../components/AddIcon";
@@ -25,9 +25,13 @@ const Dashboard = () => {
     getItems();
   }, []);
 
+  const handleAddItem = (e: MouseEvent) => {
+    console.log(e.target);
+  };
+
   return (
     <div className="dashboard">
-      <AddIcon />
+      <AddIcon onClick={handleAddItem} />
 
       <div className="recent">
         <h2>Recent QR Codes</h2>
