@@ -1,4 +1,5 @@
 import QRCode from "react-qr-code";
+import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 
 const Dashboard = () => {
@@ -12,9 +13,7 @@ const Dashboard = () => {
       <div className="recent">
         <h2>Recent QR Codes</h2>
         <div className="items">
-          <div className="item">
-            <QRCode className="qr" value="Mart" />
-          </div>
+          <QRItem title="Mart" value="asldh" />
         </div>
       </div>
     </div>
