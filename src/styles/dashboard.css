@@ -23,3 +23,11 @@
 .dashboard .add-icon .plus {
   font-size: 60px;
 }
+.dashboard .recent {
+  margin-top: 50px;
+}
+.dashboard .recent .items {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
