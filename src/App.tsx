@@ -25,9 +25,14 @@ function App() {
 
   useEffect(() => {
     const checkLogged = async () => {
-      const res = "";
-      const data = { logged: false, user: null };
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/auth/islogged`
+      );
+      const data = await res.json();
+      console.log(data);
+
       if (data.user) dispatch(setUser(data.user));
+      else dispatch(setUser(null));
     };
     checkLogged();
   }, []);
