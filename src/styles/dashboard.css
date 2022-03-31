@@ -5,24 +5,7 @@
   padding: 30px;
   flex-direction: column;
 }
-.dashboard .add-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 25px;
-  background: rgb(226, 226, 226);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-  border: 1px solid rgb(209, 209, 209);
-}
-.dashboard .add-icon:hover {
-  background: rgb(202, 202, 202);
-}
-.dashboard .add-icon .plus {
-  font-size: 60px;
-}
+
 .dashboard .recent {
   margin-top: 50px;
 }
