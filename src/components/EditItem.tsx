@@ -13,8 +13,7 @@ type Props = {
 const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
   const [editQr, setQR] = useState<TQRCode>(QR);
 
-  const handleAddItem = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(editQr);
+  const handleEditItem = async (event: React.MouseEvent<HTMLButtonElement>) => {
     if (editQr.title == "" || editQr.user == "" || editQr.value == "") {
       toast.error("Title and value is required for QR Code");
     } else {
@@ -30,6 +29,7 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         }
       );
       const data = await res.json();
+      console.log(data);
       toggleModal(false);
       setQR({ title: "", user: user._id, value: "" });
       toast.success("QR Code saved successfully!");
@@ -44,18 +44,18 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         type="text"
         placeholder="Title"
         onChange={(e) => setQR({ ...editQr, title: e.target.value })}
-        value={QR.title}
+        value={editQr.title}
       />
       <input
         type="text"
         placeholder="Value"
         onChange={(e) => setQR({ ...editQr, value: e.target.value })}
-        value={QR.value}
+        value={editQr.value}
       />
 
       <div className="buttons">
-        <button className="cta" onClick={handleAddItem}>
-          ADD
+        <button className="cta" onClick={handleEditItem}>
+          SAVE
         </button>
         <button className="cancel" onClick={() => toggleModal(false)}>
           Cancel
