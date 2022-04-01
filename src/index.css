@@ -43,6 +43,10 @@ button {
   background: none;
   border: 1px solid var(--c-pri);
 }
+.download {
+  background: green;
+  width: 100%;
+}
 .rounded {
   border-radius: 25px;
 }
