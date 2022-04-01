@@ -44,11 +44,13 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         type="text"
         placeholder="Title"
         onChange={(e) => setQR({ ...editQr, title: e.target.value })}
+        value={QR.title}
       />
       <input
         type="text"
         placeholder="Value"
         onChange={(e) => setQR({ ...editQr, value: e.target.value })}
+        value={QR.value}
       />
 
       <div className="buttons">
