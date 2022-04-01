@@ -6,11 +6,10 @@ import Modal from "../components/Modal";
 import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 import { TQRCode } from "../types/QR";
-import "../styles/modal.css";
 
 const Dashboard = () => {
   const [qrCodes, setQrCodes] = useState([]);
-  const [showModal, toggleModal] = useState(true);
+  const [showModal, toggleModal] = useState(false);
   const [editQR, setEditQR] = useState<TQRCode>({
     title: "",
     user: "",
@@ -40,9 +39,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <AddIcon onClick={handleAddItem} />
+      <AddIcon onClick={() => toggleModal(true)} />
       {showModal && (
-        <div className="modal">
+        <Modal>
           <div className="addItem">
             <h2 className="pri-light">Create New QR Code</h2>
             <QRCode value={editQR?.value} size={200} />
@@ -51,10 +50,12 @@ const Dashboard = () => {
 
             <div className="buttons">
               <button className="cta">ADD</button>
-              <button className="cancel">Cancel</button>
+              <button className="cancel" onClick={() => toggleModal(false)}>
+                Cancel
+              </button>
             </div>
           </div>
-        </div>
+        </Modal>
       )}
 
       <div className="recent">
