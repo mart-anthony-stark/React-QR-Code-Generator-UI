@@ -39,6 +39,10 @@ button {
   color: #000;
   border-radius: 5px;
 }
+.cancel {
+  background: none;
+  border: 1px solid var(--c-pri);
+}
 .rounded {
   border-radius: 25px;
 }
