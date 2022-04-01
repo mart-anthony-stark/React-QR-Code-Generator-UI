@@ -8,9 +8,10 @@ import Modal from "../components/Modal";
 import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 import { TQRCode } from "../types/QR";
+import { User } from "../types/User";
 
 const Dashboard = () => {
-  const user = useSelector((state: any) => state.user);
+  const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
   const [showModal, toggleModal] = useState(false);
 
@@ -44,7 +45,7 @@ const Dashboard = () => {
           {qrCodes.length == 0 ? (
             <h2>No items</h2>
           ) : (
-            qrCodes.map((code: any) => (
+            qrCodes.map((code: TQRCode) => (
               <QRItem title={code.title} value={code.value} />
             ))
           )}
