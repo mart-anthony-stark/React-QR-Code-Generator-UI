@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useSelector } from "react-redux";
 import AddIcon from "../components/AddIcon";
@@ -8,14 +8,14 @@ import "../styles/dashboard.css";
 import { TQRCode } from "../types/QR";
 
 const Dashboard = () => {
+  const user = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
   const [showModal, toggleModal] = useState(false);
-  const [editQR, setEditQR] = useState<TQRCode>({
+  const [addQr, setEditQR] = useState<TQRCode>({
     title: "",
-    user: "",
+    user: user._id,
     value: "",
   });
-  const user = useSelector((state: any) => state.user);
 
   const getItems = async () => {
     const token = localStorage.getItem("token");
@@ -33,8 +33,8 @@ const Dashboard = () => {
     getItems();
   }, []);
 
-  const handleAddItem = (e: MouseEvent) => {
-    console.log(e.target);
+  const handleAddItem = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(addQr);
   };
 
   return (
@@ -44,16 +44,22 @@ const Dashboard = () => {
         <Modal>
           <div className="addItem">
             <h2 className="pri-light">Create New QR Code</h2>
-            <QRCode value={editQR?.value} size={200} />
-            <input type="text" placeholder="Title" />
+            <QRCode value={addQr?.value} size={200} />
+            <input
+              type="text"
+              placeholder="Title"
+              onChange={(e) => setEditQR({ ...addQr, title: e.target.value })}
+            />
             <input
               type="text"
               placeholder="Value"
-              onChange={(e) => setEditQR({ ...editQR, value: e.target.value })}
+              onChange={(e) => setEditQR({ ...addQr, value: e.target.value })}
             />
 
             <div className="buttons">
-              <button className="cta">ADD</button>
+              <button className="cta" onClick={handleAddItem}>
+                ADD
+              </button>
               <button className="cancel" onClick={() => toggleModal(false)}>
                 Cancel
               </button>
