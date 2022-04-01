@@ -55,7 +55,7 @@ const Dashboard = () => {
       )}
 
       <div className="recent">
-        <h2>Recent QR Codes</h2>
+        <h2>Saved QR Codes</h2>
         <div className="items">
           {qrCodes.length == 0 ? (
             <h2>No items</h2>
