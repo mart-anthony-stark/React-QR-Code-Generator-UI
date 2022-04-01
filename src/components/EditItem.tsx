@@ -18,14 +18,17 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
     if (editQr.title == "" || editQr.user == "" || editQr.value == "") {
       toast.error("Title and value is required for QR Code");
     } else {
-      const res = await fetch(import.meta.env.VITE_API_BASE_URL + "/qr", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          token: `bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify(editQr),
-      });
+      const res = await fetch(
+        import.meta.env.VITE_API_BASE_URL + `/qr/${QR._id}/user/${user._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            token: `bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(editQr),
+        }
+      );
       const data = await res.json();
       console.log(data);
       toggleModal(false);
@@ -36,7 +39,7 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
   };
   return (
     <div className="addItem">
-      <h2 className="pri-light">Create New QR Code</h2>
+      <h2 className="pri-light">Edit QR Code</h2>
       <QRCode value={editQr?.value} size={200} />
       <input
         type="text"
