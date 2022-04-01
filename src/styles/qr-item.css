@@ -1,3 +1,7 @@
 .item {
   text-align: center;
+  cursor: pointer;
+  background: var(--c-pri-dark);
+  color: #fff;
+  padding: 5px;
 }
