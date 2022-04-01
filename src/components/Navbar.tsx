@@ -15,7 +15,7 @@ export default () => {
 
   return (
     <div className="header">
-      <Link to="/">
+      <Link to={`${user ? "/dashboard" : "/"}`}>
         <h1>QR Code Generator</h1>
       </Link>
 
