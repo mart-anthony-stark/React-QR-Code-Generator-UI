@@ -46,7 +46,11 @@ const Dashboard = () => {
             <h2 className="pri-light">Create New QR Code</h2>
             <QRCode value={editQR?.value} size={200} />
             <input type="text" placeholder="Title" />
-            <input type="text" placeholder="Value" />
+            <input
+              type="text"
+              placeholder="Value"
+              onChange={(e) => setEditQR({ ...editQR, value: e.target.value })}
+            />
 
             <div className="buttons">
               <button className="cta">ADD</button>
