@@ -5,13 +5,7 @@ import AddIcon from "../components/AddIcon";
 import Modal from "../components/Modal";
 import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
-
-type TQRCode = {
-  user: string;
-  title: string;
-  value: string;
-  _id?: string;
-};
+import { TQRCode } from "../types/QR";
 
 const Dashboard = () => {
   const [qrCodes, setQrCodes] = useState([]);
