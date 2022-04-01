@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import QRCode from "react-qr-code";
 import { toast } from "react-toastify";
 import { TQRCode } from "../types/QR";
+import { handleDownload } from "../utils/download";
 
 type Props = {
   user: any;
@@ -38,7 +39,7 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
   return (
     <div className="addItem">
       <h2 className="pri-light">Edit QR Code</h2>
-      <QRCode value={editQr?.value} size={200} />
+      <QRCode className={`C${QR._id}`} value={editQr?.value} size={200} />
       <input
         type="text"
         placeholder="Title"
@@ -51,6 +52,14 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         onChange={(e) => setQR({ ...editQr, value: e.target.value })}
         value={editQr.value}
       />
+      <button
+        className="cta"
+        onClick={() =>
+          handleDownload({ title: QR.title, selector: `svg.C${QR._id}` })
+        }
+      >
+        Download
+      </button>
 
       <div className="buttons">
         <button className="cta" onClick={handleEditItem}>
