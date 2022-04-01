@@ -17,7 +17,6 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
   });
 
   const handleAddItem = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(addQr);
     if (addQr.title == "" || addQr.user == "" || addQr.value == "") {
       toast.error("Title and value is required for QR Code");
     } else {
@@ -30,7 +29,6 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
         body: JSON.stringify(addQr),
       });
       const data = await res.json();
-      console.log(data);
       toggleModal(false);
       setAddQr({ title: "", user: user._id, value: "" });
       toast.success("QR Code added successfully!");
