@@ -1,6 +1,7 @@
 import React, { MouseEventHandler, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import AddIcon from "../components/AddIcon";
 import Modal from "../components/Modal";
 import QRItem from "../components/QRItem";
@@ -35,6 +36,11 @@ const Dashboard = () => {
 
   const handleAddItem = (event: React.MouseEvent<HTMLButtonElement>) => {
     console.log(addQr);
+    if (addQr.title == "" || addQr.user == "" || addQr.value == "") {
+      toast.error("Title and value is required for QR Code");
+    } else {
+      
+    }
   };
 
   return (
