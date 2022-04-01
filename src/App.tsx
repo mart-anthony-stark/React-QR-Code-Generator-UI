@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { setUser } from "./actions";
 
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -28,19 +28,24 @@ function App() {
     const checkLogged = async () => {
       const jwt = localStorage.getItem("token");
       const token = `bearer ${jwt}`;
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/islogged`,
-        {
-          headers: { token },
-        }
-      );
-      const data = await res.json();
-      console.log(data);
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/auth/islogged`,
+          {
+            headers: { token },
+          }
+        );
+        const data = await res.json();
+        console.log(data);
 
-      if (data.user) dispatch(setUser(data.user));
-      else dispatch(setUser(null));
+        if (data.user) dispatch(setUser(data.user));
+        else dispatch(setUser(null));
 
-      setLoading(false);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        toast.error("Could not connect to database");
+      }
     };
     checkLogged();
   }, []);
