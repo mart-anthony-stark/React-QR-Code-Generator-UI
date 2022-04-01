@@ -36,7 +36,6 @@ function App() {
           }
         );
         const data = await res.json();
-        console.log(data);
 
         if (data.user) dispatch(setUser(data.user));
         else dispatch(setUser(null));
