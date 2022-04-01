@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import '../styles/modal.css'
+import "../styles/modal.css";
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const Modal: FC<Props> = ({ children }) => {
