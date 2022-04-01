@@ -29,7 +29,6 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         }
       );
       const data = await res.json();
-      console.log(data);
       toggleModal(false);
       setQR({ title: "", user: user._id, value: "" });
       toast.success("QR Code saved successfully!");
