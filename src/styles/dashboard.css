@@ -16,10 +16,26 @@
 }
 
 .dashboard .addItem {
+  max-width: 350px;
+  width: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
+}
+.dashboard .addItem input {
+  padding: 10px;
+  width: 100%;
+  background: rgb(226, 226, 226);
+  border: none;
+}
+.dashboard .addItem .buttons {
+  display: flex;
+  gap: 15px;
+  align-self: flex-end;
+}
+.dashboard .addItem .buttons button {
+  width: 100px;
 }
