@@ -5,6 +5,14 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
+:root {
+  --c-pri: #2c52bb;
+  --c-pri-light: #376af7;
+  --c-pri-dark: #1f3675;
+  --c-sec: #efe7bc;
+  --c-acc: #bb2c62;
+}
 .flex {
   display: flex;
   gap: 10px;
@@ -17,12 +25,11 @@
 .col {
   flex-direction: column;
 }
-:root {
-  --c-pri: #2c52bb;
-  --c-pri-light: #376af7;
-  --c-pri-dark: #1f3675;
-  --c-sec: #efe7bc;
-  --c-acc: #bb2c62;
+.pri {
+  color: var(--c-pri);
+}
+.pri-light {
+  color: var(--c-pri-light);
 }
 button {
   padding: 8px 20px;
