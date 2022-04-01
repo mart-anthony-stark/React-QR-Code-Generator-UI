@@ -53,7 +53,7 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems, QR }) => {
         value={editQr.value}
       />
       <button
-        className="cta"
+        className="cta download"
         onClick={() =>
           handleDownload({ title: QR.title, selector: `svg.C${QR._id}` })
         }
