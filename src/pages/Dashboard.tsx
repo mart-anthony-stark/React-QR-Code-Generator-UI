@@ -2,11 +2,25 @@ import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useSelector } from "react-redux";
 import AddIcon from "../components/AddIcon";
+import Modal from "../components/Modal";
 import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 
+type TQRCode = {
+  user: string;
+  title: string;
+  value: string;
+  _id?: string;
+};
+
 const Dashboard = () => {
   const [qrCodes, setQrCodes] = useState([]);
+  const [showModal, toggleModal] = useState(true);
+  const [editQR, setEditQR] = useState<TQRCode>({
+    title: "",
+    user: "",
+    value: "",
+  });
   const user = useSelector((state: any) => state.user);
 
   const getItems = async () => {
@@ -32,6 +46,14 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <AddIcon onClick={handleAddItem} />
+      {showModal && (
+        <Modal>
+          <div className="addItem">
+            <h2 className="pri-light">Create New QR Code</h2>
+            <QRCode value={editQR?.value} />
+          </div>
+        </Modal>
+      )}
 
       <div className="recent">
         <h2>Recent QR Codes</h2>
