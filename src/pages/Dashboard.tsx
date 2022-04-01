@@ -12,7 +12,7 @@ const Dashboard = () => {
   const user = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
   const [showModal, toggleModal] = useState(false);
-  const [addQr, setEditQR] = useState<TQRCode>({
+  const [addQr, setAddQr] = useState<TQRCode>({
     title: "",
     user: user._id,
     value: "",
@@ -21,7 +21,6 @@ const Dashboard = () => {
   const getItems = async () => {
     const token = localStorage.getItem("token");
     const endpoint = `${import.meta.env.VITE_API_BASE_URL}/qr/all/${user._id}`;
-    console.log(endpoint);
     const res = await fetch(endpoint, {
       headers: { token: `bearer ${token}` },
     });
@@ -34,12 +33,24 @@ const Dashboard = () => {
     getItems();
   }, []);
 
-  const handleAddItem = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(addQr);
+  const handleAddItem = async (event: React.MouseEvent<HTMLButtonElement>) => {
     if (addQr.title == "" || addQr.user == "" || addQr.value == "") {
       toast.error("Title and value is required for QR Code");
     } else {
-      
+      const res = await fetch(import.meta.env.VITE_API_BASE_URL + "/qr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          token: `bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(addQr),
+      });
+      const data = await res.json();
+      console.log(data);
+      toggleModal(false);
+      setAddQr({ title: "", user: user._id, value: "" });
+      toast.success("QR Code added successfully!");
+      getItems();
     }
   };
 
@@ -54,12 +65,12 @@ const Dashboard = () => {
             <input
               type="text"
               placeholder="Title"
-              onChange={(e) => setEditQR({ ...addQr, title: e.target.value })}
+              onChange={(e) => setAddQr({ ...addQr, title: e.target.value })}
             />
             <input
               type="text"
               placeholder="Value"
-              onChange={(e) => setEditQR({ ...addQr, value: e.target.value })}
+              onChange={(e) => setAddQr({ ...addQr, value: e.target.value })}
             />
 
             <div className="buttons">
