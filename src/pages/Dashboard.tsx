@@ -44,7 +44,7 @@ const Dashboard = () => {
         <Modal>
           <div className="addItem">
             <h2 className="pri-light">Create New QR Code</h2>
-            <QRCode value={editQR?.value} />
+            <QRCode value={editQR?.value} size={200} />
           </div>
         </Modal>
       )}
