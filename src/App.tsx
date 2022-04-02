@@ -73,10 +73,7 @@ function App() {
                   path="/dashboard"
                   element={user ? <Dashboard /> : <Navigate to="/login" />}
                 />
-                <Route
-                  path="/subscription"
-                  element={user ? <Subscription /> : <Navigate to="/login" />}
-                />
+                <Route path="/subscription" element={<Subscription />} />
               </Routes>
             </Router>
           </Suspense>
