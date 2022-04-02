@@ -1,0 +1,9 @@
+.pricing-card {
+  height: 400px;
+  width: 300px;
+  background: #fff;
+  position: absolute;
+  top: 35%;
+  border-radius: 5px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
