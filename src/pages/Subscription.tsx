@@ -2,6 +2,8 @@ import PricingCard from "../components/PricingCard";
 import "../styles/subscription.css";
 
 const Subscription = () => {
+  const freeFeatures = ["Limited to 5 QR save and download"];
+
   return (
     <div className="subscription">
       <div className="top-banner">
@@ -9,7 +11,11 @@ const Subscription = () => {
         <h1 className="heading">Choose a plan that's right for you</h1>
 
         <div className="pricing-table">
-          <PricingCard price={0} title="FREE"></PricingCard>
+          <PricingCard
+            price={0}
+            title="FREE"
+            features={freeFeatures}
+          ></PricingCard>
           <PricingCard price={1000} title="PREMIUM"></PricingCard>
         </div>
       </div>
