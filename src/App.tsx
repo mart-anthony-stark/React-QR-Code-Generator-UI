@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { setUser } from "./actions";
+import Subscription from "./pages/Subscription";
 
 const Navbar = lazy(() => import("./components/Navbar"));
 
@@ -71,6 +72,10 @@ function App() {
                 <Route
                   path="/dashboard"
                   element={user ? <Dashboard /> : <Navigate to="/login" />}
+                />
+                <Route
+                  path="/subscription"
+                  element={user ? <Subscription /> : <Navigate to="/login" />}
                 />
               </Routes>
             </Router>
