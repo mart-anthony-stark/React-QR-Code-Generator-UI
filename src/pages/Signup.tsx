@@ -37,8 +37,8 @@ const Signup: FC = () => {
         if (data.success) {
           dispatch(setUser(data.user));
           localStorage.setItem("token", data.token);
-          toast.success("Account createed successfully");
-          navigate("/dashboard");
+          toast.success("Account created successfully");
+          navigate("/subscription");
         } else {
           toast.error(data.msg || "Something went wrong");
         }
