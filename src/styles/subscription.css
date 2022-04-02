@@ -23,3 +23,9 @@
   color: #fff;
   font-weight: 600;
 }
+.subscription .pricing-table {
+  position: absolute;
+  top: 35%;
+  display: flex;
+  gap: 100px;
+}
