@@ -6,9 +6,10 @@ type Props = {
   title: string;
   price: number;
   onClick?: () => void;
+  features?: string[];
 };
 
-const PricingCard: FC<Props> = ({ title, price, onClick }) => {
+const PricingCard: FC<Props> = ({ title, price, onClick, features }) => {
   return (
     <div className="pricing-card">
       <div className="top">
@@ -20,6 +21,18 @@ const PricingCard: FC<Props> = ({ title, price, onClick }) => {
           <span>/year</span>
         </h1>
         <button onClick={onClick}>Get Started</button>
+        <div className="feature-list">
+          {features && (
+            <ul>
+              {features.map((feat) => (
+                <li key={feat}>
+                  <img id="check" src="/src/images/check.svg" />
+                  {feat}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );
