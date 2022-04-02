@@ -8,6 +8,7 @@ const Subscription = () => {
   const premiumFeatures = [
     "Unlimited saving of QR codes",
     "Unlimited Scanning",
+    "Can add qr code logo"
   ];
   const handleStartFree = () => {
     navigate("/dashboard");
