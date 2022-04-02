@@ -34,10 +34,10 @@ const Signup: FC = () => {
         const data = await res.json();
 
         if (data.success) {
+          navigate("/subscription", { replace: true });
           dispatch(setUser(data.user));
           localStorage.setItem("token", data.token);
           toast.success("Account created successfully");
-          navigate("/subscription");
         } else {
           toast.error(data.msg || "Something went wrong");
         }
