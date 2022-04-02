@@ -1,0 +1,25 @@
+.subscription {
+  min-height: calc(100vh - 70px);
+}
+.subscription .top-banner {
+  border-top: 1px solid rgb(153, 153, 153);
+  height: 50vh;
+  background: var(--c-pri);
+  top: 70px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  flex-direction: column;
+}
+.subscription .top-banner .desc {
+  background: rgba(221, 221, 221, 0.267);
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #fff;
+}
+.subscription .heading {
+  color: #fff;
+  font-weight: 600;
+}
