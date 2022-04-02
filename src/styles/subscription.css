@@ -12,6 +12,7 @@
   align-items: center;
   padding: 50px;
   flex-direction: column;
+  border-radius: 0 0 40% 40%;
 }
 .subscription .top-banner .desc {
   background: rgba(221, 221, 221, 0.267);
