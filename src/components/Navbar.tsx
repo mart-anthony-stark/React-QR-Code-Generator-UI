@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { setUser } from "../actions";
 
 export default () => {
@@ -10,6 +11,7 @@ export default () => {
   const handleLogout = () => {
     localStorage.clear();
     dispatch(setUser(null));
+    toast.info("Logged out");
     navigate("/");
   };
 
