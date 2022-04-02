@@ -25,3 +25,29 @@
 .pricing-card .bottom .price span {
   font-size: 16px;
 }
+.pricing-card .bottom button {
+  padding: 15px 20px;
+  background: var(--c-pri-light);
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.5s ease;
+}
+.pricing-card .bottom button:hover {
+  background: #fff;
+  border: 2px solid var(--c-pri-light);
+  color: var(--c-pri);
+}
+.pricing-card .feature-list {
+  display: flex;
+  justify-content: center;
+}
+.pricing-card .feature-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pricing-card #check {
+  height: 20px;
+  width: 20px;
+}
