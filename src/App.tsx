@@ -9,15 +9,15 @@ import Landing from "./pages/Landing";
 import AcceptCookies from "./components/AcceptCookies";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { setUser } from "./actions";
-import Subscription from "./pages/Subscription";
 
 const Navbar = lazy(() => import("./components/Navbar"));
+const Subscription = lazy(() => import("./pages/Subscription"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
