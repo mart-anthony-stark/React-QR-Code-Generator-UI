@@ -16,8 +16,9 @@ import { setUser } from "./actions";
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const Subscription = lazy(() => import("./pages/Subscription"));
-const Signup = lazy(() => import("./pages/Signup"));
-const Login = lazy(() => import("./pages/Login"));
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   const [cookieVisible, setCookieVisible] = useState(true);
@@ -54,10 +55,9 @@ function App() {
     <div className="App">
       {!loading && (
         <div>
+          <ToastContainer />
           <Suspense fallback={<div></div>}>
             <Router>
-              <ToastContainer />
-
               <Navbar />
               <Routes>
                 <Route path="/" element={<Landing />} />
