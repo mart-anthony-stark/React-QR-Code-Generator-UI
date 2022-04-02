@@ -14,7 +14,10 @@ const PricingCard: FC<Props> = ({ title, price }) => {
         <h3 className="title">{title}</h3>
       </div>
       <div className="bottom">
-        <h1>₱{price}</h1>
+        <h1 className="price">
+          ₱{price}
+          <span>/year</span>
+        </h1>
       </div>
     </div>
   );
