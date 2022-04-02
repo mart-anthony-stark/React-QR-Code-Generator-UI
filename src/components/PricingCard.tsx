@@ -5,10 +5,10 @@ import "../styles/pricing-card.css";
 type Props = {
   title: string;
   price: number;
-  onStart?: () => void;
+  onClick?: () => void;
 };
 
-const PricingCard: FC<Props> = ({ title, price, onStart }) => {
+const PricingCard: FC<Props> = ({ title, price, onClick }) => {
   return (
     <div className="pricing-card">
       <div className="top">
@@ -19,7 +19,7 @@ const PricingCard: FC<Props> = ({ title, price, onStart }) => {
           ₱{price}
           <span>/year</span>
         </h1>
-        <button onClick={onStart}>Get Started</button>
+        <button onClick={onClick}>Get Started</button>
       </div>
     </div>
   );
