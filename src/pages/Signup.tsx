@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import "react-toastify/dist/ReactToastify.css";
