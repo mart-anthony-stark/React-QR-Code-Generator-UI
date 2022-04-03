@@ -54,3 +54,8 @@ button {
   background: var(--c-acc);
   color: #fff;
 }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.541);
+}
