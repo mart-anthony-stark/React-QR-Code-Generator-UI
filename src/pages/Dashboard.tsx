@@ -15,7 +15,7 @@ import ScanButton from "../components/ScanButton";
 const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
-  const [scannerShown, toggleScanner] = useState(true);
+  const [scannerShown, toggleScanner] = useState(false);
   const [scannedData, setScannedData] = useState("No result");
 
   const [currentQR, setCurrentQR] = useState<TQRCode>({
@@ -61,10 +61,11 @@ const Dashboard = () => {
 
       <div className="actions">
         <AddIcon onClick={() => toggleModal(true)} />
-        <ScanButton onClick={() => toggleModal(true)} />
+        <ScanButton onClick={() => toggleScanner(true)} />
       </div>
 
-      {scannerShown && (
+      {/* Show scanner preview overlay */}
+      {scannerShown && user.subscription == "free" && (
         <div className="reader-container">
           <QrReader
             onResult={handleScan}
@@ -72,6 +73,9 @@ const Dashboard = () => {
             constraints={{}}
             scanDelay={1000}
           />
+          <button onClick={() => toggleScanner(false)} className="cta">
+            CANCEL
+          </button>
         </div>
       )}
 
