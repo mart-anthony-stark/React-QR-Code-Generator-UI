@@ -30,6 +30,10 @@ const Dashboard = () => {
   const handleScan = (result: any) => {
     if (!!result) {
       setScannedData(result?.text);
+      setCurrentQR({ value: result?.text, title: "", user: user._id || "" });
+
+      toggleScanner(false);
+      toggleModal(true);
       console.log(result);
     }
   };
@@ -61,11 +65,13 @@ const Dashboard = () => {
 
       <div className="actions">
         <AddIcon onClick={() => toggleModal(true)} />
-        <ScanButton onClick={() => toggleScanner(true)} />
+        {user.subscription === "premium" && (
+          <ScanButton onClick={() => toggleScanner(true)} />
+        )}
       </div>
 
       {/* Show scanner preview overlay */}
-      {scannerShown && user.subscription == "free" && (
+      {scannerShown && user.subscription == "premium" && (
         <div>
           <div className="overlay" onClick={() => toggleScanner(false)}></div>
           <div className="reader-container">
