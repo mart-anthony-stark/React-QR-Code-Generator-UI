@@ -1,0 +1,10 @@
+.account-badge {
+  color: #ffffff;
+  padding: 5px 20px;
+  border-radius: 25px;
+}
+.account-badge.free {
+  background: rgb(68, 179, 68);
+  display: inline-block;
+  border: 2px solid green;
+}
