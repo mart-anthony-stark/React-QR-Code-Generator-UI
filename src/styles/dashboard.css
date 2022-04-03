@@ -12,6 +12,25 @@
   gap: 30px;
 }
 
+.dashboard .reader-container {
+  position: fixed;
+  left: 50%;
+  max-width: 600px;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: var(--c-pri-dark);
+  border-radius: 5px;
+}
+.dashboard .reader-container section {
+  max-height: 400px;
+  height: auto;
+}
+.dashboard .reader-container video {
+  height: auto !important;
+}
+
 .dashboard .recent {
   margin-top: 50px;
 }
