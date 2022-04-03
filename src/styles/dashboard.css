@@ -6,6 +6,12 @@
   flex-direction: column;
 }
 
+.dashboard .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 .dashboard .recent {
   margin-top: 50px;
 }
