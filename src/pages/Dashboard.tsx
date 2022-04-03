@@ -10,6 +10,7 @@ import "../styles/dashboard.css";
 import { TQRCode } from "../types/QR";
 import { User } from "../types/User";
 import { QrReader } from "react-qr-reader";
+import ScanButton from "../components/ScanButton";
 
 const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
@@ -58,8 +59,10 @@ const Dashboard = () => {
         <AccountBadge type={user.subscription} />
       </div>
 
-      <AddIcon onClick={() => toggleModal(true)} />
-      <AddIcon onClick={() => toggleModal(true)} />
+      <div className="actions">
+        <AddIcon onClick={() => toggleModal(true)} />
+        <ScanButton onClick={() => toggleModal(true)} />
+      </div>
 
       {scannerShown && (
         <div className="reader-container">
