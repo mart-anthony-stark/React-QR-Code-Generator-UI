@@ -16,3 +16,14 @@
 .add-icon .plus {
   font-size: 60px;
 }
+.scan-button {
+  background: rgb(0, 74, 117);
+  color: #fff;
+}
+.scan-button:hover {
+  background: rgb(29, 140, 204);
+}
+.scan-button img {
+  height: 50px;
+  margin-bottom: 23px;
+}
