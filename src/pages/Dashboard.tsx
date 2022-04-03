@@ -9,10 +9,13 @@ import QRItem from "../components/QRItem";
 import "../styles/dashboard.css";
 import { TQRCode } from "../types/QR";
 import { User } from "../types/User";
+import { QrReader } from "react-qr-reader";
 
 const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
+  const [scannedData, setScannedData] = useState("No result");
+
   const [currentQR, setCurrentQR] = useState<TQRCode>({
     title: "",
     user: "",
@@ -21,6 +24,16 @@ const Dashboard = () => {
   const [showModal, toggleModal] = useState(false);
   const [showEditModal, toggleEditModal] = useState(false);
 
+
+  // Handle on successful scanning QR Code from webcam
+  const handleScan = (result: any) => {
+    if (!!result) {
+      setScannedData(result?.text);
+      console.log(result);
+    }
+  };
+
+  // Get QR Codes from backend API
   const getItems = async () => {
     const token = localStorage.getItem("token");
     const endpoint = `${import.meta.env.VITE_API_BASE_URL}/qr/all/${user._id}`;
@@ -44,7 +57,11 @@ const Dashboard = () => {
         </h3>
         <AccountBadge type={user.subscription} />
       </div>
+
       <AddIcon onClick={() => toggleModal(true)} />
+
+      <QrReader onResult={handleScan} videoStyle={{ width: "100px" }} />
+
       {showModal && (
         <Modal>
           <AddItem toggleModal={toggleModal} getItems={getItems} user={user} />
