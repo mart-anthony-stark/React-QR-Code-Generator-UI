@@ -1,5 +1,6 @@
 import React, { MouseEventHandler, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import AccountBadge from "../components/AccountBadge";
 import AddIcon from "../components/AddIcon";
 import AddItem from "../components/AddItem";
 import EditItem from "../components/EditItem";
@@ -37,6 +38,12 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      <div className="account-info">
+        <h3>
+          Username: <span>{user.username}</span>
+        </h3>
+        <AccountBadge type={user.subscription} />
+      </div>
       <AddIcon onClick={() => toggleModal(true)} />
       {showModal && (
         <Modal>
