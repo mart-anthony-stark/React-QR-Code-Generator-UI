@@ -24,7 +24,6 @@ const Dashboard = () => {
   const [showModal, toggleModal] = useState(false);
   const [showEditModal, toggleEditModal] = useState(false);
 
-
   // Handle on successful scanning QR Code from webcam
   const handleScan = (result: any) => {
     if (!!result) {
@@ -60,7 +59,13 @@ const Dashboard = () => {
 
       <AddIcon onClick={() => toggleModal(true)} />
 
-      <QrReader onResult={handleScan} videoStyle={{ width: "100px" }} />
+      <div className="reader-container">
+        <QrReader
+          onResult={handleScan}
+          videoStyle={{ width: "100px" }}
+          constraints={{}}
+        />
+      </div>
 
       {showModal && (
         <Modal>
