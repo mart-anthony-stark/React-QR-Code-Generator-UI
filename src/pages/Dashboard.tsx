@@ -14,6 +14,7 @@ import { QrReader } from "react-qr-reader";
 const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
+  const [scannerShown, toggleScanner] = useState(false);
   const [scannedData, setScannedData] = useState("No result");
 
   const [currentQR, setCurrentQR] = useState<TQRCode>({
@@ -58,14 +59,17 @@ const Dashboard = () => {
       </div>
 
       <AddIcon onClick={() => toggleModal(true)} />
+      <AddIcon onClick={() => toggleModal(true)} />
 
-      <div className="reader-container">
-        <QrReader
-          onResult={handleScan}
-          videoStyle={{ width: "100px" }}
-          constraints={{}}
-        />
-      </div>
+      {scannerShown && (
+        <div className="reader-container">
+          <QrReader
+            onResult={handleScan}
+            videoStyle={{ width: "100px" }}
+            constraints={{}}
+          />
+        </div>
+      )}
 
       {showModal && (
         <Modal>
