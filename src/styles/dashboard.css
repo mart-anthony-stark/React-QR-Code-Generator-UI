@@ -10,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
 }
 
 .dashboard .reader-container {
@@ -22,10 +23,18 @@
   padding: 20px;
   background: var(--c-pri-dark);
   border-radius: 5px;
+  z-index: 999;
+}
+.dashboard .reader-container button {
+  padding: 15px;
+  width: 100%;
 }
 .dashboard .reader-container section {
   max-height: 400px;
   height: auto;
+}
+.dashboard .reader-container section div {
+  position: unset !important;
 }
 .dashboard .reader-container video {
   height: auto !important;
