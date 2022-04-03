@@ -8,3 +8,8 @@
   display: inline-block;
   border: 2px solid green;
 }
+.account-badge.premium {
+  background: rgb(202, 76, 202);
+  display: inline-block;
+  border: 2px solid rgb(153, 0, 255);
+}
