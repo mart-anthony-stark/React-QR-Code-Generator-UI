@@ -15,7 +15,7 @@ import ScanButton from "../components/ScanButton";
 const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
-  const [scannerShown, toggleScanner] = useState(false);
+  const [scannerShown, toggleScanner] = useState(true);
   const [scannedData, setScannedData] = useState("No result");
 
   const [currentQR, setCurrentQR] = useState<TQRCode>({
@@ -68,8 +68,9 @@ const Dashboard = () => {
         <div className="reader-container">
           <QrReader
             onResult={handleScan}
-            videoStyle={{ width: "100px" }}
+            videoStyle={{ width: "100%" }}
             constraints={{}}
+            scanDelay={1000}
           />
         </div>
       )}
