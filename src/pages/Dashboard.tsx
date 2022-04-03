@@ -66,16 +66,19 @@ const Dashboard = () => {
 
       {/* Show scanner preview overlay */}
       {scannerShown && user.subscription == "free" && (
-        <div className="reader-container">
-          <QrReader
-            onResult={handleScan}
-            videoStyle={{ width: "100%" }}
-            constraints={{}}
-            scanDelay={1000}
-          />
-          <button onClick={() => toggleScanner(false)} className="cta">
-            CANCEL
-          </button>
+        <div>
+          <div className="overlay" onClick={() => toggleScanner(false)}></div>
+          <div className="reader-container">
+            <QrReader
+              onResult={handleScan}
+              videoStyle={{ width: "100%" }}
+              constraints={{}}
+              scanDelay={1000}
+            />
+            <button onClick={() => toggleScanner(false)} className="cta">
+              CANCEL
+            </button>
+          </div>
         </div>
       )}
 
