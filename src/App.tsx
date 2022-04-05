@@ -38,9 +38,10 @@ function App() {
           }
         );
         const data = await res.json();
-
         if (data.user) dispatch(setUser(data.user));
         else dispatch(setUser(null));
+
+        if (data.token) localStorage.setItem("token", data.token);
 
         setLoading(false);
       } catch (error) {
