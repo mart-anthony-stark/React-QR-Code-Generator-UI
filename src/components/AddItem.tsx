@@ -29,9 +29,12 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
         body: JSON.stringify(addQr),
       });
       const data = await res.json();
+
+      if (data.success) toast.success("QR Code added successfully!");
+      else toast.error(data.msg);
+
       toggleModal(false);
       setAddQr({ title: "", user: user._id, value: "" });
-      toast.success("QR Code added successfully!");
       getItems();
     }
   };
