@@ -1,20 +1,19 @@
 import { FC, useState } from "react";
 import QRCode from "react-qr-code";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { TQRCode } from "../types/QR";
+import { User } from "../types/User";
 
 type Props = {
-  user: any;
   toggleModal: (state: boolean) => void;
   getItems: () => void;
+  addQr: TQRCode;
+  setAddQr: (qr: TQRCode) => void;
 };
 
-const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
-  const [addQr, setAddQr] = useState<TQRCode>({
-    title: "",
-    user: user._id,
-    value: "",
-  });
+const AddItem: FC<Props> = ({ toggleModal, getItems, addQr, setAddQr }) => {
+  const user: User = useSelector((state: any) => state.user);
 
   const handleAddItem = async (event: React.MouseEvent<HTMLButtonElement>) => {
     if (addQr.title == "" || addQr.user == "" || addQr.value == "") {
@@ -34,7 +33,7 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
       else toast.error(data.msg);
 
       toggleModal(false);
-      setAddQr({ title: "", user: user._id, value: "" });
+      setAddQr({ title: "", user: user._id || "", value: "" });
       getItems();
     }
   };
@@ -46,11 +45,13 @@ const AddItem: FC<Props> = ({ user, toggleModal, getItems }) => {
         type="text"
         placeholder="Title"
         onChange={(e) => setAddQr({ ...addQr, title: e.target.value })}
+        value={addQr.title}
       />
       <input
         type="text"
         placeholder="Value"
         onChange={(e) => setAddQr({ ...addQr, value: e.target.value })}
+        value={addQr.value}
       />
 
       <div className="buttons">
