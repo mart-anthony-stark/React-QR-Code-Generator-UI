@@ -28,6 +28,8 @@ const Dashboard = () => {
 
   // Handle on successful scanning QR Code from webcam
   const handleScan = (result: any) => {
+    if (!scannerShown || user.subscription !== "premium") return;
+
     if (!!result) {
       setScannedData(result?.text);
       setCurrentQR({ value: result?.text, title: "", user: user._id || "" });
