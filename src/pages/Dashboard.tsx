@@ -16,11 +16,15 @@ const Dashboard = () => {
   const user: User = useSelector((state: any) => state.user);
   const [qrCodes, setQrCodes] = useState([]);
   const [scannerShown, toggleScanner] = useState(false);
-  const [scannedData, setScannedData] = useState("No result");
 
   const [currentQR, setCurrentQR] = useState<TQRCode>({
     title: "",
     user: "",
+    value: "",
+  });
+  const [addQr, setAddQr] = useState<TQRCode>({
+    title: "",
+    user: user._id || "",
     value: "",
   });
   const [showModal, toggleModal] = useState(false);
@@ -28,15 +32,13 @@ const Dashboard = () => {
 
   // Handle on successful scanning QR Code from webcam
   const handleScan = (result: any) => {
-    if (!scannerShown || user.subscription !== "premium") return;
-
-    if (!!result) {
-      setScannedData(result?.text);
-      setCurrentQR({ value: result?.text, title: "", user: user._id || "" });
-
-      toggleScanner(false);
-      toggleModal(true);
-      console.log(result);
+    if (!scannerShown || user.subscription !== "premium") {
+    } else {
+      if (!!result) {
+        setAddQr({ value: result?.text, title: "", user: user._id || "" });
+        toggleScanner(false);
+        toggleModal(true);
+      }
     }
   };
 
@@ -92,7 +94,12 @@ const Dashboard = () => {
 
       {showModal && (
         <Modal>
-          <AddItem toggleModal={toggleModal} getItems={getItems} user={user} />
+          <AddItem
+            toggleModal={toggleModal}
+            getItems={getItems}
+            addQr={addQr}
+            setAddQr={setAddQr}
+          />
         </Modal>
       )}
       {showEditModal && (
