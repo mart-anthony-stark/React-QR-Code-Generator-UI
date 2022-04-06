@@ -61,7 +61,10 @@ function App() {
             <Router>
               <Navbar />
               <Routes>
-                <Route path="/" element={<Landing />} />
+                <Route
+                  path="/"
+                  element={user ? <Navigate to="/dashboard" /> : <Landing />}
+                />
                 <Route
                   path="/login"
                   element={user ? <Navigate to="/dashboard" /> : <Login />}
