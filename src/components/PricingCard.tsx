@@ -18,7 +18,8 @@ const PricingCard: FC<Props> = ({ title, price, onClick, features }) => {
       <div className="bottom">
         <h1 className="price">
           ₱{price}
-          <span>/year</span>
+          <span>/month</span>
+          <span className="billing">Billed Annually</span>
         </h1>
         <button onClick={onClick}>Get Started</button>
         <div className="feature-list">
