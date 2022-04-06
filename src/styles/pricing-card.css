@@ -1,5 +1,5 @@
 .pricing-card {
-  height: 400px;
+  height: 420px;
   width: 300px;
   background: #fff;
   border-radius: 5px;
@@ -52,4 +52,11 @@
 .pricing-card #check {
   height: 20px;
   width: 20px;
+}
+
+.pricing-card .billing {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
 }
