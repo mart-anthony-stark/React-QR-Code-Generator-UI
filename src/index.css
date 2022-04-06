@@ -58,4 +58,5 @@ button {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.541);
+  z-index: 1;
 }
